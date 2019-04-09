@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // modules
 import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { UserModule } from './pages/user/user.module';
 
 
 registerLocaleData(zh);
@@ -27,7 +28,8 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    DashboardModule
+    DashboardModule,
+    UserModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
