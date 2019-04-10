@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { ShareModule } from './../../share/share.module';
+
 import { UserLayoutComponent } from '../../layout/user-layout/user-layout.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -17,8 +19,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  declarations: [UserLayoutComponent, LoginComponent, RegisterComponent],
   imports: [
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ShareModule
   ],
   exports: [ RouterModule ]
 })
