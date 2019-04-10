@@ -11,7 +11,7 @@
       "schematics": {
         "@schematics/angular:component": {
           "spec": false,
-          "inlineStyle": true
+          "styleext": "less"
         }
       },
       "architect": {
@@ -33,7 +33,7 @@
               }
             ],
             "styles": [
-              "src/theme.less",
+              "src/styles.less",
               "src/styles.css"
             ],
             "scripts": []

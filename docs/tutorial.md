@@ -42,3 +42,7 @@ ng g component pages/dashboard
 // 生成dashboard-routing
 ng g module pages/dashboard/dashboard-routing --flat  --module=pages/dashboard
 ```
+
+## important
+
+1. 每个 module 都必须重新引入相关依赖 而不是只在 `app.module` 中引入
