@@ -76,7 +76,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "blog-admin-ng:build"
+            "browserTarget": "blog-admin-ng:build",
+            "hmrWarning": false
           },
           "configurations": {
             "production": {
