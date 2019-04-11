@@ -10,8 +10,8 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: './pages/pages.module#PagesModule',
   },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: '/dashboard' }
+  { path: '', redirectTo: '/dashboard/index', pathMatch: 'full' },
+  { path: '**', redirectTo: '/dashboard/index' }
 ];
 
 @NgModule({
