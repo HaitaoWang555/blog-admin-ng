@@ -46,3 +46,7 @@ ng g module pages/dashboard/dashboard-routing --flat  --module=pages/dashboard
 ## important
 
 1. 每个 module 都必须重新引入相关依赖 而不是只在 `app.module` 中引入
+
+## 启用 hmr
+
+[hmr](https://github.com/angular/angular-cli/wiki/stories-configure-hmr)
