@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: './pages/pages.module#PagesModule',
   },
+  {
+    path: 'exception',
+    loadChildren: './pages/exception/exception.module#ExceptionModule',
+  },
   { path: '', redirectTo: '/dashboard/index', pathMatch: 'full' },
   { path: '**', redirectTo: '/dashboard/index' }
 ];
