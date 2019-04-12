@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-default',
@@ -8,12 +8,5 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 export class DefaultComponent {
 
   isCollapsed = false;
-  triggerTemplate: TemplateRef<void> | null = null;
-  @ViewChild('trigger') customTrigger: TemplateRef<void>;
-
-  /** custom trigger can be TemplateRef **/
-  changeTrigger(): void {
-    this.triggerTemplate = this.customTrigger;
-  }
 
 }

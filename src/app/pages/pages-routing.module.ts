@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ShareModule } from 'src/app/share/share.module';
+import { DefaultModule } from 'src/app/layout/default/default.module';
 
 import { DefaultComponent } from 'src/app/layout/default/default.component';
 
@@ -19,10 +20,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [DefaultComponent, DashboardComponent],
+  declarations: [DashboardComponent],
   imports: [
     RouterModule.forChild(routes),
     ShareModule,
+    DefaultModule,
   ],
   exports: [RouterModule]
 })
