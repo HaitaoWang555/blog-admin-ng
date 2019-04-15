@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     component: DefaultComponent,
     children: [
-      { path: 'index', component: ExceptionComponent },
+      { path: 'index/:type', component: ExceptionComponent },
     ]
   }
 ];
