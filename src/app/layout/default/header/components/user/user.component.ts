@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { User } from './user';
 
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { USER_NAMESPACE } from 'src/app/services/local-storage.namespace';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -19,7 +20,8 @@ export class UserComponent implements OnInit {
     ) { }
 
   logout() {
-    this.store.remove('user');
+    this.store.remove(USER_NAMESPACE);
+    // TODO: use baseUrl
     window.location.href = '/';
   }
 
