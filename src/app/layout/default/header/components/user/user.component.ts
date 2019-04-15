@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { User } from './user';
 
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -13,9 +14,14 @@ export class UserComponent implements OnInit {
     avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
     name: 'angular',
   };
-  constructor() { }
+  constructor(
+    private store: LocalStorageService,
+    ) { }
 
-  logout() {}
+  logout() {
+    this.store.remove('user');
+    window.location.href = '/';
+  }
 
   ngOnInit() {
   }

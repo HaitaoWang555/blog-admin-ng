@@ -1,7 +1,9 @@
 import { Component, OnDestroy, Optional } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NzMessageService, NzModalService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +25,8 @@ export class LoginComponent implements OnDestroy {
     modalSrv: NzModalService,
     @Optional()
     public msg: NzMessageService,
+    private router: Router,
+    private store: LocalStorageService,
   ) {
     this.form = fb.group({
       userName: [null, [Validators.required, Validators.minLength(4)]],
@@ -70,21 +74,35 @@ export class LoginComponent implements OnDestroy {
 
   submit() {
     this.error = '';
+    let userObj = {};
     if (this.type === 0) {
       this.userName.markAsDirty();
       this.userName.updateValueAndValidity();
       this.password.markAsDirty();
       this.password.updateValueAndValidity();
-      console.log(this.userName.value, this.password.value);
       if (this.userName.invalid || this.password.invalid) { return; }
+      userObj = {
+        userName: this.userName.value,
+        password: this.password.value,
+      };
+      this.saveUser(userObj);
     } else {
       this.mobile.markAsDirty();
       this.mobile.updateValueAndValidity();
       this.captcha.markAsDirty();
       this.captcha.updateValueAndValidity();
-      console.log(this.mobile.value, this.captcha.value);
       if (this.mobile.invalid || this.captcha.invalid) { return; }
+      userObj = {
+        mobile: this.mobile.value,
+        password: this.password.value,
+      };
+      this.saveUser(userObj);
     }
+  }
+
+  saveUser(userObj: object): void {
+    this.store.set('user', userObj);
+    this.router.navigate(['/heroes']);
   }
 
   // #region social

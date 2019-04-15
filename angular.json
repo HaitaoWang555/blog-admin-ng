@@ -12,6 +12,9 @@
         "@schematics/angular:component": {
           "spec": false,
           "styleext": "less"
+        },
+        "@schematics/angular:service": {
+          "spec": false
         }
       },
       "architect": {
