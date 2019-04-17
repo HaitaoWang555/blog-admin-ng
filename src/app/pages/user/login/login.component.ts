@@ -4,6 +4,7 @@ import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { Router } from '@angular/router';
 
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent implements OnDestroy {
     public msg: NzMessageService,
     private router: Router,
     private store: LocalStorageService,
+    private http: HttpService,
   ) {
     this.form = fb.group({
       userName: [null, [Validators.required, Validators.minLength(4)]],
@@ -85,6 +87,9 @@ export class LoginComponent implements OnDestroy {
         userName: this.userName.value,
         password: this.password.value,
       };
+      this.http.post('/manage/login', userObj).subscribe(res => {
+        console.log('res', res);
+      });
       this.saveUser(userObj);
     } else {
       this.mobile.markAsDirty();
