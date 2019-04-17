@@ -9,10 +9,12 @@ import {
 } from '@angular/common/http';
 
 // 请求类型
+const headers = new HttpHeaders({
+  'Content-Type': 'application/json',
+});
 const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-  })
+  headers,
+  withCredentials: true
 };
 
 @Injectable({
